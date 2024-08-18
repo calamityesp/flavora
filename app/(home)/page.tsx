@@ -1,11 +1,17 @@
 "use client";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import sushi from "../../sushi.jpg";
 import {useRouter} from "next/navigation";
+import {useSession} from "next-auth/react";
 
 export default function Home() {
     const router = useRouter();
+    // const session = useSession();
+
+    // useEffect(() => {
+    //     console.log(session);
+    // },[session]);
 
     return (
         <main className="w-1/3 flex justify-center items-center flex-col gap-4">

@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type {Metadata} from "next";
+import {Inter} from "next/font/google";
 import "../globals.css";
+import SessionProviderWrapper from "@/components/SessionProviderWrapper";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
     title: "Flavoura",
@@ -15,8 +16,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="flavouraLayout border-4 border-green-600">
-        <body className={inter.className}>{children}</body>
-        </html>
+        <SessionProviderWrapper>
+            <html lang="en" className="flavouraLayout border-4 border-green-600">
+            <body className={inter.className}>{children}</body>
+            </html>
+        </SessionProviderWrapper>
     );
 }
